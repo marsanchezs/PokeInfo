@@ -1,0 +1,27 @@
+package cl.mess.pokeinfo.detail.data.source.remote.model
+
+object Constants {
+    const val ABILITIES = "abilities"
+    const val ABILITY = "ability"
+    const val BASE_EXPERIENCE = "base_experience"
+    const val DREAM_WORLD = "dream_world"
+    const val EFFORT = "effort"
+    const val FRONT_DEFAULT = "front_default"
+    const val FRONT_FEMALE = "front_female"
+    const val FRONT_SHINY = "front_shiny"
+    const val HEIGHT = "height"
+    const val ID = "id"
+    const val IS_HIDDEN = "is_hidden"
+    const val NAME = "name"
+    const val OFFICIAL_ARTWORK = "official-artwork"
+    const val OTHER = "other"
+    const val SLOT = "slot"
+    const val SPRITES = "sprites"
+    const val STAT = "stat"
+    const val BASE_STAT = "base_stat"
+    const val STATS = "stats"
+    const val TYPE = "type"
+    const val TYPES = "types"
+    const val URL = "url"
+    const val WEIGHT = "weight"
+}
