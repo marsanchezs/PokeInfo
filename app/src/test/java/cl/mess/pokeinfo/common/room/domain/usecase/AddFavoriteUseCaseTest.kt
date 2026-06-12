@@ -27,7 +27,8 @@ class AddFavoriteUseCaseTest {
         ),
         types = emptyList(),
         stats = emptyList(),
-        abilities = emptyList()
+        abilities = emptyList(),
+        description = "description"
     )
 
     @Before

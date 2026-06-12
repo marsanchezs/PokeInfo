@@ -25,7 +25,7 @@ fun NavHost() {
         composable(
             route = Screen.Detail.route + "/{id}",
             arguments = listOf(
-                navArgument(ID) { type = NavType.IntType }
+                navArgument(name = ID) { type = NavType.IntType }
             )
         ) { backStackEntry ->
             val id = backStackEntry.arguments?.getInt(ID) ?: return@composable

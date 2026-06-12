@@ -15,22 +15,28 @@ class DetailRepositoryImpl @Inject constructor(
     override suspend fun getPokemonDetail(id: Int) = flow {
 
         try {
-            val response = api.getPokemonDetail(id = id)
+            val detailResponse = api.getPokemonDetail(id = id)
+            val speciesResponse = api.getPokemonSpecies(id = id)
 
-            if (!response.isSuccessful) {
+            if (!detailResponse.isSuccessful || !speciesResponse.isSuccessful) {
                 emit(value = PokemonDetailResult.Error)
                 return@flow
             }
 
-            val pokemonDetailResponse = response.body()
-            if (pokemonDetailResponse == null) {
+            val detailBody = detailResponse.body()
+            val speciesBody = speciesResponse.body()
+
+            if (detailBody == null || speciesBody == null) {
                 emit(value = PokemonDetailResult.Error)
                 return@flow
             }
 
-            val pokemonDetail = mapper.toDomain(response = pokemonDetailResponse)
+            val pokemonDetail = mapper.toDomain(
+                detail = detailBody,
+                species = speciesBody
+            )
 
-            emit(PokemonDetailResult.Success(pokemonDetail = pokemonDetail))
+            emit(value = PokemonDetailResult.Success(pokemonDetail = pokemonDetail))
 
         } catch (_: Exception) {
             emit(value = PokemonDetailResult.Error)

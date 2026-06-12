@@ -12,14 +12,16 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import cl.mess.pokeinfo.home.domain.model.Pokemon
+import cl.mess.pokeinfo.ui.composables.text.AttrsPokeInfoText
+import cl.mess.pokeinfo.ui.composables.text.PokeInfoText
+import cl.mess.pokeinfo.ui.composables.text.PoppinsFontStyle
 import coil.compose.AsyncImage
 
 @Composable
@@ -42,11 +44,14 @@ fun PokemonCard(
                 .wrapContentSize()
                 .padding(all = 16.dp)
         ) {
-
-            Text(
-                text = "#${pokemon.number}",
-                style = MaterialTheme.typography.labelMedium,
-                modifier = Modifier.align(alignment = Alignment.TopEnd)
+            PokeInfoText(
+                attrs = AttrsPokeInfoText(
+                    modifier = Modifier.align(alignment = Alignment.TopEnd),
+                    text = "#${pokemon.number}",
+                    fontSize = 14.sp,
+                    color = Color.Gray,
+                    pokeInfoFontStyle = PoppinsFontStyle.MEDIUM
+                )
             )
 
             Column(
@@ -64,9 +69,13 @@ fun PokemonCard(
 
                 Spacer(modifier = Modifier.height(height = 12.dp))
 
-                Text(
-                    text = pokemon.name.replaceFirstChar { it.uppercase() },
-                    style = MaterialTheme.typography.titleMedium
+                PokeInfoText(
+                    attrs = AttrsPokeInfoText(
+                        text = pokemon.name.replaceFirstChar { firstChar -> firstChar.uppercase() },
+                        fontSize = 16.sp,
+                        color = Color.Gray,
+                        pokeInfoFontStyle = PoppinsFontStyle.BOLD
+                    )
                 )
             }
         }

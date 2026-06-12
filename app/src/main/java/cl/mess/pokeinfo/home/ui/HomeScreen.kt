@@ -57,7 +57,7 @@ fun HomeScreen(
         viewModel.uiEffects.collect { effect ->
             when (effect) {
                 is HomeUiEffect.NavigateToDetail -> {
-                    navController.navigate("detail/${effect.id}")
+                    navController.navigate(route = "detail/${effect.id}")
                 }
 
                 HomeUiEffect.ShowModal -> showModalFilter = true
@@ -115,11 +115,11 @@ fun HomeScreen(
             ) {
                 ModalFilterContent(
                     onAllClick = {
-                        viewModel.setFilter(PokemonFilter.All)
+                        viewModel.setFilter(filter = PokemonFilter.All)
                         showModalFilter = false
                     },
                     onFavClick = {
-                        viewModel.setFilter(PokemonFilter.Favorites)
+                        viewModel.setFilter(filter = PokemonFilter.Favorites)
                         viewModel.getFavorites()
                         showModalFilter = false
                     },

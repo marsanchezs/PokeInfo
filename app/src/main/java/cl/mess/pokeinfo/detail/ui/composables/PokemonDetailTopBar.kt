@@ -8,11 +8,16 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.sp
+import cl.mess.pokeinfo.app.R
+import cl.mess.pokeinfo.ui.composables.text.AttrsPokeInfoText
+import cl.mess.pokeinfo.ui.composables.text.PokeInfoText
+import cl.mess.pokeinfo.ui.composables.text.PoppinsFontStyle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -20,20 +25,24 @@ fun PokemonDetailTopBar(
     navigateToHome: () -> Unit,
     onToggle: () -> Unit,
     isFavorite: Boolean,
-    name: String
+    name: String,
+    containerColor: Color = MaterialTheme.colorScheme.primary
 ) {
     TopAppBar(
         title = {
-            Text(
-                text = name,
-                style = MaterialTheme.typography.titleMedium
+            PokeInfoText(
+                attrs = AttrsPokeInfoText(
+                    text = name,
+                    fontSize = 30.sp,
+                    pokeInfoFontStyle = PoppinsFontStyle.BOLD
+                )
             )
         },
         navigationIcon = {
             IconButton(onClick = navigateToHome) {
                 Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = "Back"
+                    painter = painterResource(id = R.drawable.ic_outline_arrow_back_ios_24),
+                    contentDescription = "Back",
                 )
             }
         },
@@ -47,7 +56,7 @@ fun PokemonDetailTopBar(
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primary,
+            containerColor = containerColor,
             titleContentColor = MaterialTheme.colorScheme.onPrimary,
             navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
         )

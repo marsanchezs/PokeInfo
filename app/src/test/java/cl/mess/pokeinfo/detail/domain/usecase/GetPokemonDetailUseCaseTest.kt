@@ -38,7 +38,8 @@ class GetPokemonDetailUseCaseTest {
             images = PokemonImages(frontDefault = "front.png", frontShiny = "front_shiny.png"),
             types = emptyList(),
             stats = emptyList(),
-            abilities = emptyList()
+            abilities = emptyList(),
+            description = "description"
         )
         val fakeResult = PokemonDetailResult.Success(fakePokemonDetail)
 

@@ -21,7 +21,8 @@ class FavoritesMapperTest {
             images = PokemonImages(frontDefault = "front.png", frontShiny = "shiny.png"),
             types = emptyList(),
             stats = emptyList(),
-            abilities = emptyList()
+            abilities = emptyList(),
+            description = "description"
         )
 
         val favorite = with(mapper) { detail.toFavorite() }

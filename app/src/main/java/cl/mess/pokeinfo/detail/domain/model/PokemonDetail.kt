@@ -2,6 +2,7 @@ package cl.mess.pokeinfo.detail.domain.model
 
 data class PokemonDetail(
     val id: Int,
+    val description: String,
     val name: String,
     val height: Int,
     val weight: Int,

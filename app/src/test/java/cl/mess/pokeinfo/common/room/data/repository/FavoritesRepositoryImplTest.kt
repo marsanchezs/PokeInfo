@@ -34,7 +34,8 @@ class FavoritesRepositoryImplTest {
         ),
         types = emptyList(),
         stats = emptyList(),
-        abilities = emptyList()
+        abilities = emptyList(),
+        description = "description"
     )
 
     private val sampleFavorite = Favorite(

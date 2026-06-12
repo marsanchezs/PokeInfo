@@ -7,16 +7,16 @@ plugins {
 }
 
 android {
-    namespace = "cl.mess.pokeinfo"
+    namespace = "cl.mess.pokeinfo.app"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "cl.mess.pokeinfo"
+        applicationId = "cl.mess.pokeinfo.app"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
+        versionCode = 2
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
