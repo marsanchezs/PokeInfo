@@ -37,3 +37,11 @@ Las pruebas unitarias se han desarrollado siguiendo el patrón **Given-When-Then
 - **Given**: Se establece el estado inicial o las precondiciones de la prueba.
 - **When**: Se ejecuta la acción que se desea testear.
 - **Then**: Se verifican los resultados esperados.
+
+## Code Quality
+
+Run Detekt locally:
+
+```bash
+./gradlew detekt
+```
