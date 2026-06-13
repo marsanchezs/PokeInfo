@@ -3,16 +3,7 @@ package cl.mess.pokeinfo.detail.data.repository
 import app.cash.turbine.test
 import cl.mess.pokeinfo.detail.data.mapper.DetailMapper
 import cl.mess.pokeinfo.detail.data.source.remote.DetailService
-import cl.mess.pokeinfo.detail.data.source.remote.model.AbilitySlotResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.FlavorTextEntryResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.NamedApiResourceResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.OfficialArtworkResponse
 import cl.mess.pokeinfo.detail.data.source.remote.model.PokemonDetailResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.PokemonOtherSpritesResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.PokemonSpeciesResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.PokemonSpritesResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.StatResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.TypeSlotResponse
 import cl.mess.pokeinfo.detail.domain.result.PokemonDetailResult
 import cl.mess.pokeinfo.detail.factory.DetailFactory.makePokemonDetailResponse
 import cl.mess.pokeinfo.detail.factory.DetailFactory.makePokemonSpeciesResponse
