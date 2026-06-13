@@ -3,15 +3,11 @@ package cl.mess.pokeinfo.detail.data.repository
 import app.cash.turbine.test
 import cl.mess.pokeinfo.detail.data.mapper.DetailMapper
 import cl.mess.pokeinfo.detail.data.source.remote.DetailService
-import cl.mess.pokeinfo.detail.data.source.remote.model.AbilitySlotResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.NamedApiResourceResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.OfficialArtworkResponse
 import cl.mess.pokeinfo.detail.data.source.remote.model.PokemonDetailResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.PokemonOtherSpritesResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.PokemonSpritesResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.StatResponse
-import cl.mess.pokeinfo.detail.data.source.remote.model.TypeSlotResponse
 import cl.mess.pokeinfo.detail.domain.result.PokemonDetailResult
+import cl.mess.pokeinfo.detail.factory.DetailFactory.makePokemonDetailResponse
+import cl.mess.pokeinfo.detail.factory.DetailFactory.makePokemonSpeciesResponse
+import cl.mess.pokeinfo.utils.RandomFactory
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -19,6 +15,7 @@ import kotlinx.coroutines.test.runTest
 import okhttp3.ResponseBody.Companion.toResponseBody
 import org.junit.Before
 import org.junit.Test
+import retrofit2.Response
 import kotlin.test.assertEquals
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -36,54 +33,33 @@ class DetailRepositoryImplTest {
     @Test
     fun `given successful API response, when getPokemonDetail is called, then emits Success`() = runTest {
         // Given
-        val id = 1
-        val responseBody = PokemonDetailResponse(
-            id = 1,
-            name = "Pikachu",
-            height = 4,
-            weight = 60,
-            baseExperience = 112,
-            sprites = PokemonSpritesResponse(
-                other = PokemonOtherSpritesResponse(
-                    officialArtWork = OfficialArtworkResponse(
-                        frontDefault = "front.png",
-                        frontShiny = "front_shiny.png"
-                    )
-                )
-            ),
-            types = listOf(
-                TypeSlotResponse(
-                    slot = 1,
-                    type = NamedApiResourceResponse(name = "electric", url = "url")
-                )
-            ),
-            stats = listOf(
-                StatResponse(
-                    baseStat = 35,
-                    effort = 0,
-                    stat = NamedApiResourceResponse(name = "speed", url = "url")
-                )
-            ),
-            abilities = listOf(
-                AbilitySlotResponse(
-                    isHidden = false,
-                    slot = 1,
-                    ability = NamedApiResourceResponse(name = "static", url = "url")
-                )
-            )
+        val id = RandomFactory.generateRandomInt()
+        val name = RandomFactory.generateRandomString()
+        val frontDefault = RandomFactory.generateRandomString()
+
+        val responseBody = makePokemonDetailResponse(
+            id = id.toString(),
+            name = name,
+            frontDefault = frontDefault
         )
 
-        val apiResponse = retrofit2.Response.success(responseBody)
+        val speciesResponseBody = makePokemonSpeciesResponse()
+
+        val apiResponse = Response.success(responseBody)
 
         coEvery { api.getPokemonDetail(id) } returns apiResponse
+
+        coEvery {
+            api.getPokemonSpecies(id)
+        } returns Response.success(speciesResponseBody)
 
         // When & Then
         repository.getPokemonDetail(id).test {
             val item = awaitItem()
             require(item is PokemonDetailResult.Success)
-            assertEquals(1, item.pokemonDetail.id)
-            assertEquals("Pikachu", item.pokemonDetail.name)
-            assertEquals("front.png", item.pokemonDetail.images.frontDefault)
+            assertEquals(id, item.pokemonDetail.id)
+            assertEquals(name, item.pokemonDetail.name)
+            assertEquals(frontDefault, item.pokemonDetail.images.frontDefault)
             awaitComplete()
         }
     }
@@ -92,7 +68,7 @@ class DetailRepositoryImplTest {
     fun `given API returns error, when getPokemonDetail is called, then emits Error`() = runTest {
         // Given
         val id = 1
-        val apiResponse = retrofit2.Response.error<PokemonDetailResponse>(
+        val apiResponse = Response.error<PokemonDetailResponse>(
             404,
             "".toResponseBody(null)
         )
@@ -111,7 +87,7 @@ class DetailRepositoryImplTest {
     fun `given API returns null body, when getPokemonDetail is called, then emits Error`() = runTest {
         // Given
         val id = 1
-        val apiResponse = retrofit2.Response.success<PokemonDetailResponse>(null)
+        val apiResponse = Response.success<PokemonDetailResponse>(null)
 
         coEvery { api.getPokemonDetail(id) } returns apiResponse
 

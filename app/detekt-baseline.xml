@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:Utils.kt$Utils$fun getColor(type: String)</ID>
+    <ID>EmptyFunctionBlock:GetPokemonListUseCaseTest.kt$GetPokemonListUseCaseTest.&lt;no name provided&gt;${}</ID>
+    <ID>FunctionNaming:DetailScreen.kt$@Composable fun DetailScreen( navigateToHome: () -&gt; Unit, id: Int, viewModel: DetailViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:FavoritesGrid.kt$@Composable fun FavoritesGrid( favorites: List&lt;Pokemon&gt;, onPokemonClick: (Pokemon) -&gt; Unit )</ID>
+    <ID>FunctionNaming:HomeScreen.kt$@Composable fun HomeScreen( navController: NavController, viewModel: HomeViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:ModalFilterContent.kt$@Composable fun ModalFilterContent( onAllClick: () -&gt; Unit, onFavClick: () -&gt; Unit, filter: PokemonFilter )</ID>
+    <ID>FunctionNaming:ModalFilterItem.kt$@Composable fun ModalFilterItem( onClick: () -&gt; Unit, imageVector: ImageVector, isSelected: Boolean, text: String )</ID>
+    <ID>FunctionNaming:NavHost.kt$@Composable fun NavHost()</ID>
+    <ID>FunctionNaming:PokeInfoBottomSheetModal.kt$@Composable fun PokeInfoBottomSheetModal( onDismiss: () -&gt; Unit, horizontalPadding: Dp = 24.dp, dragHandle: (@Composable () -&gt; Unit)? = { PokeInfoBottomSheetModalDragHandle() }, content: @Composable ColumnScope.() -&gt; Unit )</ID>
+    <ID>FunctionNaming:PokeInfoBottomSheetModal.kt$@Composable fun PokeInfoBottomSheetModalDragHandle()</ID>
+    <ID>FunctionNaming:PokeInfoEmpty.kt$@Composable fun PokeInfoEmpty()</ID>
+    <ID>FunctionNaming:PokeInfoError.kt$@Composable fun PokeInfoError(onRetry: () -&gt; Unit)</ID>
+    <ID>FunctionNaming:PokeInfoLoading.kt$@Composable fun PokeInfoLoading()</ID>
+    <ID>FunctionNaming:PokeInfoText.kt$@Composable fun PokeInfoText( attrs: AttrsPokeInfoText, annotatedText: AnnotatedString )</ID>
+    <ID>FunctionNaming:PokeInfoText.kt$@Composable fun PokeInfoText(attrs: AttrsPokeInfoText)</ID>
+    <ID>FunctionNaming:PokemonCard.kt$@Composable fun PokemonCard( pokemon: Pokemon, onClick: (Pokemon) -&gt; Unit )</ID>
+    <ID>FunctionNaming:PokemonCardShimmer.kt$@Composable fun PokemonCardShimmer()</ID>
+    <ID>FunctionNaming:PokemonCharacteristics.kt$@Composable fun PokemonCharacteristics( height: Int, weight: Int, abilities: List&lt;PokemonAbility&gt; )</ID>
+    <ID>FunctionNaming:PokemonCharacteristicsColumn.kt$@Composable fun PokemonCharacteristicsColumn( title: String, fontColor: Color, content: @Composable () -&gt; Unit, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:PokemonDescription.kt$@Composable fun PokemonDescription(description: String)</ID>
+    <ID>FunctionNaming:PokemonDetailCard.kt$@Composable fun PokemonDetailCard( pokemonDetail: PokemonDetail, backgroundColor: Color, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:PokemonDetailContent.kt$@SuppressLint("UnusedBoxWithConstraintsScope") @OptIn(ExperimentalMaterial3Api::class) @Composable fun PokemonDetailContent( navigateToHome: () -&gt; Unit, onToggle: () -&gt; Unit, isFavorite: Boolean, pokemonDetail: PokemonDetail )</ID>
+    <ID>FunctionNaming:PokemonDetailTopBar.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun PokemonDetailTopBar( navigateToHome: () -&gt; Unit, onToggle: () -&gt; Unit, isFavorite: Boolean, name: String, containerColor: Color = MaterialTheme.colorScheme.primary )</ID>
+    <ID>FunctionNaming:PokemonGrid.kt$@Composable fun PokemonGrid( pokemonPagingItems: LazyPagingItems&lt;PokemonListResult&gt;, onClick: (Pokemon) -&gt; Unit )</ID>
+    <ID>FunctionNaming:PokemonPager.kt$@OptIn(ExperimentalFoundationApi::class) @Composable fun PokemonPager( pagerState: PagerState, splitPosition: Dp, imageSize: Dp, images: List&lt;String&gt; )</ID>
+    <ID>FunctionNaming:PokemonPagerIndicator.kt$@Composable fun PokemonPagerIndicator( pageCount: Int, currentPage: Int, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:PokemonStatItem.kt$@Composable fun PokemonStatItem( stat: PokemonStat, backgroundColor: Color )</ID>
+    <ID>FunctionNaming:PokemonStats.kt$@Composable fun PokemonStats( stats: List&lt;PokemonStat&gt;, backgroundColor: Color )</ID>
+    <ID>FunctionNaming:PokemonType.kt$@Composable fun PokemonType( types: List&lt;PokemonType&gt;, backgroundColor: Color )</ID>
+    <ID>FunctionNaming:Theme.kt$@Composable fun PokeInfoTheme( darkTheme: Boolean = isSystemInDarkTheme(), // Dynamic color is available on Android 12+ dynamicColor: Boolean = true, content: @Composable () -&gt; Unit )</ID>
+    <ID>LongMethod:HomeScreen.kt$@Composable fun HomeScreen( navController: NavController, viewModel: HomeViewModel = hiltViewModel() )</ID>
+    <ID>LongMethod:PokemonCardShimmer.kt$@Composable fun PokemonCardShimmer()</ID>
+    <ID>LongMethod:PokemonCharacteristics.kt$@Composable fun PokemonCharacteristics( height: Int, weight: Int, abilities: List&lt;PokemonAbility&gt; )</ID>
+    <ID>LongMethod:PokemonPager.kt$@OptIn(ExperimentalFoundationApi::class) @Composable fun PokemonPager( pagerState: PagerState, splitPosition: Dp, imageSize: Dp, images: List&lt;String&gt; )</ID>
+    <ID>MagicNumber:Color.kt$0xFF625b71</ID>
+    <ID>MagicNumber:Color.kt$0xFF6650a4</ID>
+    <ID>MagicNumber:Color.kt$0xFF7D5260</ID>
+    <ID>MagicNumber:Color.kt$0xFFCCC2DC</ID>
+    <ID>MagicNumber:Color.kt$0xFFD0BCFF</ID>
+    <ID>MagicNumber:Color.kt$0xFFEFB8C8</ID>
+    <ID>MagicNumber:PokemonDetailContent.kt$0.2f</ID>
+    <ID>MagicNumber:PokemonStatItem.kt$100f</ID>
+    <ID>MaxLineLength:GetPokemonListUseCaseTest.kt$GetPokemonListUseCaseTest.&lt;no name provided&gt;$override fun areContentsTheSame(oldItem: PokemonListResult, newItem: PokemonListResult)</ID>
+    <ID>MaxLineLength:GetPokemonListUseCaseTest.kt$GetPokemonListUseCaseTest.&lt;no name provided&gt;$override fun areItemsTheSame(oldItem: PokemonListResult, newItem: PokemonListResult)</ID>
+    <ID>MaxLineLength:HomeMapper.kt$HomeMapper$imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$id.png"</ID>
+    <ID>NewLineAtEndOfFile:Color.kt$cl.mess.pokeinfo.ui.theme.Color.kt</ID>
+    <ID>NewLineAtEndOfFile:ExampleUnitTest.kt$cl.mess.pokeinfo.ExampleUnitTest.kt</ID>
+    <ID>NewLineAtEndOfFile:PokeInfoEmpty.kt$cl.mess.pokeinfo.ui.composables.template.PokeInfoEmpty.kt</ID>
+    <ID>NewLineAtEndOfFile:Theme.kt$cl.mess.pokeinfo.ui.theme.Theme.kt</ID>
+    <ID>NewLineAtEndOfFile:Type.kt$cl.mess.pokeinfo.ui.theme.Type.kt</ID>
+    <ID>TooGenericExceptionCaught:HomePagingSource.kt$HomePagingSource$e: Exception</ID>
+    <ID>WildcardImport:ExampleUnitTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:GetPokemonListUseCaseTest.kt$import kotlinx.coroutines.test.*</ID>
+  </CurrentIssues>
+</SmellBaseline>
